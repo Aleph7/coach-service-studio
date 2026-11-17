@@ -131,15 +131,23 @@ const f=(p)=>p.map(n=>n.toFixed(1)).join(',');
 function icon(x,y,s,onDark){
   let g=`<g transform="translate(${x},${y}) scale(${s})">`;
   if(onDark) g+=`<circle cx="200" cy="200" r="200" fill="#fff"/>`;
-  g+=`<path d="M${f(P(150,38))} A150,150 0 1 1 ${f(P(150,322))}" fill="none" stroke="${NAVY}" stroke-width="52"/>`;
-  g+=`<circle cx="200" cy="200" r="96" fill="${NAVY}"/>`;
-  for(let i=0;i<9;i++){const p=P(62,-90+i*40);g+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="12.5" fill="#fff"/>`;}
-  [[20,110],[200,290]].forEach(([a,b])=>{g+=`<path d="M${f(P(36,a))} A36,36 0 0 1 ${f(P(36,b))}" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round"/>`;});
-  g+=`<circle cx="200" cy="200" r="10" fill="#fff"/>`;
-  const e=P(182,-20),ang=-20*Math.PI/180,tx=-Math.sin(ang),ty=Math.cos(ang),nx=Math.cos(ang),ny=Math.sin(ang);
-  g+=`<path d="M${f(P(182,-165))} A182,182 0 0 1 ${f(e)}" fill="none" stroke="${ORANGE}" stroke-width="15" stroke-linecap="round"/>`;
-  g+=`<polygon points="${f([e[0]+tx*40,e[1]+ty*40])} ${f([e[0]+nx*28,e[1]+ny*28])} ${f([e[0]-nx*28,e[1]-ny*28])}" fill="${ORANGE}"/>`;
+  g+=`<path d="M${f(P(132,38))} A132,132 0 1 1 ${f(P(132,322))}" fill="none" stroke="${NAVY}" stroke-width="60"/>`;
+  g+=`<circle cx="200" cy="200" r="88" fill="${NAVY}"/>`;
+  for(let i=0;i<7;i++){const p=P(55,-90+i*360/7);g+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="15" fill="#fff"/>`;}
+  [[20,110],[200,290]].forEach(([a,b])=>{g+=`<path d="M${f(P(26,a))} A26,26 0 0 1 ${f(P(26,b))}" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>`;});
+  g+=`<circle cx="200" cy="200" r="9" fill="#fff"/>`;
+  const R=176,e=P(R,-20),ang=-20*Math.PI/180,tx=-Math.sin(ang),ty=Math.cos(ang),nx=Math.cos(ang),ny=Math.sin(ang);
+  g+=`<path d="M${f(P(R,-165))} A${R},${R} 0 0 1 ${f(e)}" fill="none" stroke="${ORANGE}" stroke-width="13" stroke-linecap="round"/>`;
+  g+=`<polygon points="${f([e[0]+tx*34,e[1]+ty*34])} ${f([e[0]+nx*19,e[1]+ny*19])} ${f([e[0]-nx*19,e[1]-ny*19])}" fill="${ORANGE}"/>`;
   return g+'</g>';
+}
+/* ชุดโลโก้ไอคอน + ชื่อไทย + COACH SERVICE จัดกึ่งกลางแนวตั้งกับไอคอน */
+function lockup(x,y,isz,textX,size,maxW,nameStr,onDark,nameFill){
+  const cy=y+isz/2,s1=fit(nameStr,800,size,maxW),w1=measure(nameStr,800,s1);
+  const lsr=0.14,m=measure('COACH SERVICE',600,100)/100;
+  const s2=Math.min(w1/(m+lsr*12),s1*0.46),g=0.18*s1;
+  const b1=cy-(-0.8*s1+g+0.72*s2)/2,b2=b1+g+0.72*s2;
+  return icon(x,y,isz/400,onDark)+T(textX,b1,nameStr,{size:s1,weight:800,fill:nameFill||NAVY})+T(textX+s1*0.02,b2,'COACH SERVICE',{size:s2,weight:600,fill:ORANGE,ls:(lsr*s2).toFixed(2)});
 }
 function brandRow(x,y,w,h,gap,size,stroke,fill){
   const ws=BRANDS.map(b=>measure(b,700,size)+size*1.6);
@@ -163,9 +171,7 @@ const phoneIcon=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})" fill="
 /* ===== ชิ้นงาน 1: โลโก้ ===== */
 function logoSVG(s){
   const W=1600,H=600;
-  let b=`<rect width="${W}" height="${H}" fill="#fff"/>`+icon(60,60,1.2,false);
-  b+=T(620,340,s.name,{size:220*s.nameScale,weight:800,maxW:930});
-  b+=T(626,460,'COACH SERVICE',{size:84,weight:600,fill:ORANGE,ls:14,maxW:880});
+  let b=`<rect width="${W}" height="${H}" fill="#fff"/>`+lockup(60,60,480,620,220*s.nameScale,930,s.name,false);
   return wrap(W,H,b);
 }
 /* ===== ชิ้นงาน 2: ป้ายไวนิล 4000x1000 ===== */
@@ -173,13 +179,13 @@ function vinylSVG(s){
   const W=4000,H=1000;
   let b=`<rect width="${W}" height="${H}" fill="#fff"/><rect x="1200" width="2800" height="${H}" fill="${LIGHT}"/>`;
   b+=`<polygon points="0,0 1290,0 1150,1000 0,1000" fill="#C7CED8"/><polygon points="0,0 1262,0 1122,1000 0,1000" fill="${ORANGE}"/><polygon points="0,0 1210,0 1070,1000 0,1000" fill="${NAVY}"/>`;
-  b+=icon(60,50,0.75,true);
-  b+=T(390,190,'COACH SERVICE',{size:62,weight:600,fill:'#fff',ls:6,maxW:620});
-  b+=T(392,270,'ชัยนาท',{size:60,weight:700,fill:ORANGE,maxW:300});
-  b+=T(60,590,s.name,{size:230*s.nameScale,weight:800,fill:'#fff',maxW:960});
-  b+=`<rect x="60" y="680" width="980" height="130" rx="65" fill="${ORANGE}"/>`;
-  b+=T(550,680+82,s.badge,{size:58,weight:700,fill:'#fff',anchor:'middle',maxW:880});
-  b+=T(60,920,'ยกปั๊มมาที่ร้าน • ไม่รับงานนอกสถานที่',{size:44,weight:600,fill:'#cbd5e1',maxW:960});
+  b+=icon(60,60,0.75,true);
+  b+=T(400,197.5,'COACH SERVICE',{size:62,weight:600,fill:'#fff',ls:6,maxW:640});
+  b+=T(402,267.5,'ชัยนาท',{size:60,weight:700,fill:ORANGE,maxW:300});
+  b+=T(60,610,s.name,{size:230*s.nameScale,weight:800,fill:'#fff',maxW:960});
+  b+=`<rect x="60" y="690" width="980" height="130" rx="65" fill="${ORANGE}"/>`;
+  b+=T(550,690+82,s.badge,{size:58,weight:700,fill:'#fff',anchor:'middle',maxW:880});
+  b+=T(60,925,'ยกปั๊มมาที่ร้าน • ไม่รับงานนอกสถานที่',{size:44,weight:600,fill:'#cbd5e1',maxW:960});
   // center
   b+=T(1340,240,s.line1,{size:108*s.headScale,weight:800,maxW:1520});
   b+=T(1340,390,s.line2,{size:108*s.headScale,weight:800,maxW:1520});
@@ -201,19 +207,23 @@ function vinylSVG(s){
 function webSVG(s){
   const W=1920,H=1080;
   let b=`<rect width="${W}" height="${H}" fill="#fff"/><rect x="1180" width="740" height="${H}" fill="${LIGHT}"/>`;
-  b+=`<polygon points="1180,0 1230,0 1130,1080 1080,1080" fill="${ORANGE}" opacity="0"/>`;
-  b+=`<rect x="90" y="70" width="70" height="8" fill="${ORANGE}"/>`;
-  b+=T(90,245,s.name,{size:168*s.nameScale,weight:800,maxW:1000});
-  b+=T(94,350,'รับซ่อมปั๊มไฮดรอลิก',{size:90*s.headScale,weight:800,fill:ORANGE,maxW:1000});
+  b+=lockup(90,60,230,360,150*s.nameScale,790,s.name,false);
+  b+=T(90,395,'รับซ่อมปั๊มไฮดรอลิก',{size:80*s.headScale,weight:800,fill:ORANGE,maxW:1000});
   const items=['ผ่าซ่อมปั๊มลูกสูบ / มอเตอร์ไฮดรอลิก','เจียหน้าเพลท (Valve Plate) / ซ่อม Cylinder','จำหน่ายอะไหล่ปั๊มไฮดรอลิก','ยกมาเช็กและซ่อมที่หน้าร้านเท่านั้น (ไม่รับอัดสาย)'];
-  items.forEach((t,i)=>{const y=470+i*72;
+  items.forEach((t,i)=>{const y=490+i*68;
     b+=`<polyline points="92,${y-18} 108,${y-2} 134,${y-34}" fill="none" stroke="${ORANGE}" stroke-width="9" stroke-linecap="square"/>`;
     b+=T(160,y,t,{size:42,weight:600,maxW:950});});
   b+=T(90,770,'ยี่ห้อที่รับซ่อม',{size:30,weight:700,fill:SLATE});
   b+=brandRow(90,790,1000,64,12,26,'#CBD5E1','#fff');
-  b+=icon(1290,170,1.35,false);
-  b+=`<rect x="1270" y="740" width="560" height="92" rx="46" fill="${ORANGE}"/>`;
-  b+=T(1550,802,'ซ่อมหน้าร้านเท่านั้น',{size:44,weight:700,fill:'#fff',anchor:'middle',maxW:500});
+  b+=`<rect x="1230" y="70" width="600" height="770" rx="28" fill="#fff" stroke="#E2E8F0" stroke-width="4"/>`;
+  b+=`<rect x="1250" y="90" width="560" height="120" rx="20" fill="${ORANGE}"/>`;
+  b+=T(1530,170,'ซ่อมหน้าร้านเท่านั้น',{size:64,weight:800,fill:'#fff',anchor:'middle',maxW:500});
+  b+=T(1530,270,'ยกปั๊มเข้ามาให้ช่างเช็กที่ร้านได้เลย',{size:38,weight:700,anchor:'middle',maxW:520});
+  b+=T(1530,322,'ไม่รับงานนอกสถานที่ • ไม่รับอัดสาย',{size:34,weight:600,fill:SLATE,anchor:'middle',maxW:520});
+  b+=qrBox(1260,370,240,s.qr1,s.qr1cap,280,32);
+  b+=qrBox(1560,370,240,s.qr2,s.qr2cap,280,32);
+  b+=`<rect x="1250" y="705" width="560" height="110" rx="20" fill="${NAVY}"/>`;
+  b+=T(1530,785,'โทร. '+s.phone,{size:60*s.phoneScale,weight:800,fill:'#fff',anchor:'middle',maxW:520});
   b+=`<rect x="90" y="890" width="1740" height="120" rx="60" fill="${NAVY}"/>`;
   b+=T(960,968,`ยกปั๊มเข้ามาให้ช่างเช็กได้ที่หน้าร้าน ${s.addressShort} | โทร. ${s.phone}`,{size:42,weight:700,fill:'#fff',anchor:'middle',maxW:1650});
   return wrap(W,H,b);
