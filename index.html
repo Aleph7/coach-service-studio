@@ -3,35 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>สตูดิโอป้ายและแบนเนอร์ - โค้ช เซอร์วิส</title>
+<title>ทำป้ายร้าน โค้ช เซอร์วิส</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Prompt:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0B1F3A;--orange:#F36F21;--bg:#F8FAFC;--slate:#64748B}
+:root{--navy:#0A2240;--yellow:#FACC15;--amber:#F59E0B;--bg:#F1F5F9;--slate:#64748B}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Prompt',sans-serif;background:var(--bg);color:var(--navy)}
-header{background:var(--navy);color:#fff;padding:18px 28px;display:flex;align-items:center;gap:16px;border-bottom:6px solid var(--orange)}
-header h1{font-family:'Kanit','Prompt',sans-serif;font-size:26px;margin:0}
-header p{margin:2px 0 0;font-size:14px;color:#cbd5e1}
-main{max-width:1400px;margin:0 auto;padding:22px}
-.panel{background:#fff;border:2px solid #e2e8f0;border-radius:14px;padding:18px 20px;margin-bottom:26px}
-.panel h2{margin:0 0 12px;font-size:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 18px}
+header{background:var(--navy);color:#fff;padding:18px 28px;border-bottom:8px solid var(--yellow)}
+header h1{font-family:'Kanit','Prompt',sans-serif;font-size:28px;margin:0;color:var(--yellow)}
+header p{margin:4px 0 0;font-size:15px;color:#e2e8f0}
+main{max-width:1300px;margin:0 auto;padding:22px}
+.panel,.card{background:#fff;border:2px solid #e2e8f0;border-radius:14px;padding:18px 20px;margin-bottom:26px}
+.panel h2,.card h2{margin:0 0 10px;font-size:21px}
+.card .sub{margin:0 0 12px;color:var(--slate);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px 18px}
 label{display:block;font-size:14px;font-weight:600;color:var(--slate)}
 input[type=text],select{width:100%;margin-top:4px;padding:10px 12px;font:inherit;font-size:16px;border:2px solid #cbd5e1;border-radius:8px;color:var(--navy);background:#fff}
-input[type=text]:focus,select:focus{outline:none;border-color:var(--orange)}
-input[type=range]{width:100%;accent-color:var(--orange)}
-input[type=file]{margin-top:6px;font-size:14px}
-.card{background:#fff;border:2px solid #e2e8f0;border-radius:14px;padding:18px 20px;margin-bottom:26px}
-.card h2{margin:0 0 4px;font-size:21px}
-.card .sub{margin:0 0 12px;color:var(--slate);font-size:14px}
-.preview{border:1px solid #cbd5e1;background:repeating-conic-gradient(#f1f5f9 0 25%,#fff 0 50%) 0 0/20px 20px;line-height:0}
+input[type=text]:focus,select:focus{outline:none;border-color:var(--amber)}
+input[type=range]{width:100%;accent-color:var(--amber)}
+.preview{border:1px solid #cbd5e1;line-height:0;background:#fff}
 .preview svg{width:100%;height:auto;display:block}
 .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
 button{font:inherit;font-weight:700;font-size:16px;padding:11px 20px;border:0;border-radius:10px;cursor:pointer}
-.b1{background:var(--navy);color:#fff}.b2{background:var(--orange);color:#fff}.b3{background:#e2e8f0;color:var(--navy)}
-button:hover{filter:brightness(1.1)}button:disabled{opacity:.6;cursor:wait}
+.b1{background:var(--navy);color:#fff}.b2{background:var(--yellow);color:var(--navy)}.b3{background:#e2e8f0;color:var(--navy)}
+button:hover{filter:brightness(1.08)}button:disabled{opacity:.6;cursor:wait}
 .sel{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--slate)}.sel select{width:auto;margin:0;padding:8px}
 .note{font-size:13px;color:var(--slate);margin-top:8px}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--navy);color:#fff;padding:12px 22px;border-radius:30px;font-size:15px;display:none;z-index:9}
@@ -39,66 +36,50 @@ button:hover{filter:brightness(1.1)}button:disabled{opacity:.6;cursor:wait}
 </head>
 <body>
 <header>
-  <div>
-    <h1>สตูดิโอป้ายและแบนเนอร์ โค้ช เซอร์วิส</h1>
-    <p>แก้ข้อความด้านล่าง ดูผลทันที แล้วกดดาวน์โหลดส่งโรงพิมพ์หรือโพสต์ออนไลน์ได้เลย</p>
-  </div>
+  <h1>ทำป้ายร้าน โค้ช เซอร์วิส</h1>
+  <p>พิมพ์แก้ข้อความด้านล่าง ดูผลทันที แล้วกดดาวน์โหลดไปทำป้ายหรือลงไลน์/แผนที่ได้เลย</p>
 </header>
 <main>
-
-<section class="panel" id="controls">
-  <h2>✏️ แก้ไขข้อความ (เห็นผลทันที)</h2>
+<section class="panel">
+  <h2>✏️ แก้ข้อความ</h2>
   <div class="grid">
-    <label>ชื่อร้าน<input type="text" id="name" value="โค้ช เซอร์วิส"></label>
+    <label>ชื่อร้าน (เว้นว่างได้ ถ้าไม่ต้องการแสดง)<input type="text" id="name" value="ร้านโค้ช เซอร์วิส"></label>
+    <label>พาดหัวบรรทัดที่ 1 (สีขาว)<input type="text" id="h1" value="ซ่อมปั๊ม-มอเตอร์"></label>
+    <label>พาดหัวบรรทัดที่ 2 (สีเหลือง)<input type="text" id="h2" value="ไฮดรอลิก"></label>
+    <label>บริการ (ป้ายร้าน ข้อ 1)<input type="text" id="svc1" value="รับซ่อมปั๊ม-มอเตอร์ไฮดรอลิก • เจียหน้าเพลท"></label>
+    <label>รถที่รับซ่อม<input type="text" id="vehicles" value="รถเกี่ยวข้าว รถคีบอ้อย รถตัดอ้อย รถแบคโฮ"></label>
+    <label>เงื่อนไขการซ่อม (ป้ายร้าน ข้อ 3)<input type="text" id="svc3" value="ซ่อมหน้าร้านเท่านั้น (ไม่รับอัดสาย)"></label>
+    <label>บรรทัดบริการ (แบนเนอร์ออนไลน์)<input type="text" id="extra" value="เจียหน้าเพลท • อะไหล่ • ไม่รับอัดสาย"></label>
     <label>เบอร์โทร<input type="text" id="phone" value="081-288-6989"></label>
-    <label>ที่อยู่ (ป้ายไวนิล)<input type="text" id="address" value="ติดถนนพหลโยธิน ต.เขาท่าพระ อ.เมือง จ.ชัยนาท"></label>
-    <label>ที่อยู่สั้น (แบนเนอร์ออนไลน์)<input type="text" id="addressShort" value="ติดถนนพหลโยธิน เขาท่าพระ ชัยนาท"></label>
-    <label>ป้ายแถบสีส้ม (ป้ายไวนิล)<input type="text" id="badge" value="ซ่อมปั๊มไฮดรอลิก • ซ่อมหน้าร้านเท่านั้น"></label>
-    <label>หัวข้อบริการ บรรทัด 1<input type="text" id="line1" value="รับผ่าซ่อมปั๊มลูกสูบ • เจียหน้าเพลท"></label>
-    <label>หัวข้อบริการ บรรทัด 2<input type="text" id="line2" value="ซ่อมเสื้อสูบ (Cylinder) • ขายอะไหล่ปั๊ม"></label>
-    <label>ข้อความขอบเขตงาน<input type="text" id="scope" value="(ซ่อมเฉพาะปั๊มและมอเตอร์ไฮดรอลิก • ไม่รับอัดสาย)"></label>
-    <label>คำอธิบายใต้ QR ช่อง 1<input type="text" id="qr1cap" value="แอดไลน์ส่งรูปถามราคา"></label>
-    <label>คำอธิบายใต้ QR ช่อง 2<input type="text" id="qr2cap" value="แผนที่มาร้าน"></label>
-    <label>ขนาดชื่อร้าน <span id="v_nameScale">100</span>%<input type="range" id="nameScale" min="60" max="120" value="100"></label>
-    <label>ขนาดหัวข้อบริการ <span id="v_headScale">100</span>%<input type="range" id="headScale" min="60" max="120" value="100"></label>
+    <label>ที่อยู่ร้าน (เว้นว่างได้)<input type="text" id="address" value="ติดถนนพหลโยธิน ต.เขาท่าพระ อ.เมือง จ.ชัยนาท"></label>
+    <label>ขนาดพาดหัว <span id="v_headScale">100</span>%<input type="range" id="headScale" min="60" max="120" value="100"></label>
     <label>ขนาดเบอร์โทร <span id="v_phoneScale">100</span>%<input type="range" id="phoneScale" min="60" max="120" value="100"></label>
-    <label>ใส่รูป QR Code ช่อง 1 (LINE)<input type="file" id="qr1" accept="image/*"></label>
-    <label>ใส่รูป QR Code ช่อง 2 (แผนที่)<input type="file" id="qr2" accept="image/*"></label>
   </div>
   <div class="actions"><button class="b3" id="reset">คืนค่าเริ่มต้น</button></div>
-  <p class="note">ถ้าตัวอักษรยาวเกินกรอบ ระบบจะย่อให้พอดีอัตโนมัติ • ข้อความที่แก้จะถูกจำไว้ในเครื่องนี้</p>
+  <p class="note">ถ้าข้อความยาวเกินกรอบ ระบบจะย่อตัวอักษรให้พอดีเอง • ข้อความที่แก้จะถูกจำไว้ในเครื่องนี้</p>
 </section>
 
 <section class="card">
-  <h2>1) โลโก้ร้าน</h2>
-  <p class="sub">ตัวอักษร C + หน้าตัดโม่ลูกสูบ + ช่องพอร์ตหน้าเพลท + ลูกศรหมุนสีส้ม</p>
-  <div class="preview" id="pv_logo"></div>
-  <div class="actions">
-    <button class="b1" data-dl="logo" data-type="svg">⬇ ดาวน์โหลด SVG (เวกเตอร์)</button>
-    <button class="b2" data-dl="logo" data-type="png">⬇ ดาวน์โหลด PNG (300 DPI)</button>
-    <span class="sel">ขนาด PNG <select data-scale="logo"><option value="2">3200×1200</option><option value="1">1600×600</option><option value="4">6400×2400</option></select></span>
-  </div>
-</section>
-
-<section class="card">
-  <h2>2) ป้ายไวนิลหน้าร้าน 4:1 (400 × 100 ซม.)</h2>
-  <p class="sub">ไฟล์ SVG ขยายได้ไม่แตก ส่งร้านทำป้ายได้เลย</p>
+  <h2>1) ป้ายไวนิลหน้าร้าน</h2>
+  <p class="sub">เลือกสัดส่วนป้ายได้ ไฟล์ SVG ขยายใหญ่ได้โดยภาพไม่แตก</p>
+  <div class="actions" style="margin:0 0 12px"><span class="sel">สัดส่วนป้าย
+    <select id="ratio"><option value="4">4:1 (กว้าง เช่น 400×100 ซม.)</option><option value="2">2:1 (เช่น 200×100 ซม.)</option></select></span></div>
   <div class="preview" id="pv_vinyl"></div>
   <div class="actions">
-    <button class="b1" data-dl="vinyl" data-type="svg">⬇ ดาวน์โหลด SVG (เวกเตอร์)</button>
-    <button class="b2" data-dl="vinyl" data-type="png">⬇ ดาวน์โหลด PNG (300 DPI)</button>
-    <span class="sel">ขนาด PNG <select data-scale="vinyl"><option value="1">4000×1000</option><option value="0.5">2000×500</option><option value="2">8000×2000</option></select></span>
+    <button class="b1" data-dl="vinyl" data-type="svg">⬇ ดาวน์โหลด SVG (ส่งทำป้าย)</button>
+    <button class="b2" data-dl="vinyl" data-type="png">⬇ ดาวน์โหลด PNG ความละเอียดสูง</button>
+    <span class="sel">ขนาด PNG <select data-scale="vinyl"><option value="1">มาตรฐาน (กว้าง 4000 / 2000 พิกเซล)</option><option value="0.5">เล็ก (ครึ่งหนึ่ง)</option><option value="2">ใหญ่พิเศษ (2 เท่า)</option></select></span>
   </div>
-  <p class="note">โรงพิมพ์: ให้ใช้ไฟล์ SVG เป็นหลัก ฟอนต์ถูกฝังในไฟล์แล้ว หากโปรแกรมของร้านทำป้ายไม่แสดงฟอนต์ ให้เปิดแล้วแปลงตัวอักษรเป็นเส้น (Convert to Outlines) • PNG ของป้าย 400 ซม. ใช้ดูตัวอย่าง/ส่งทางไลน์ ไม่เหมาะพิมพ์จริง</p>
+  <p class="note">ส่งโรงพิมพ์: ให้ใช้ไฟล์ SVG ถ้าโปรแกรมของร้านทำป้ายแสดงฟอนต์ไม่ตรง ให้แปลงตัวอักษรเป็นเส้น (Convert to Outlines) • ไฟล์ PNG ใช้ดูตัวอย่างหรือส่งทางไลน์</p>
 </section>
 
 <section class="card">
-  <h2>3) แบนเนอร์ออนไลน์ 1920 × 1080 (Facebook / LINE / Google Maps)</h2>
-  <p class="sub">อ่านง่าย เป็นกันเอง ใช้ลงโซเชียลได้ทันที</p>
+  <h2>2) ภาพปกสำหรับ LINE และ Google Maps (1920 × 1080)</h2>
+  <p class="sub">สีและแบบเดียวกับป้ายหน้าร้าน</p>
   <div class="preview" id="pv_web"></div>
   <div class="actions">
-    <button class="b1" data-dl="web" data-type="svg">⬇ ดาวน์โหลด SVG (เวกเตอร์)</button>
-    <button class="b2" data-dl="web" data-type="png">⬇ ดาวน์โหลด PNG (300 DPI)</button>
+    <button class="b1" data-dl="web" data-type="svg">⬇ ดาวน์โหลด SVG</button>
+    <button class="b2" data-dl="web" data-type="png">⬇ ดาวน์โหลด PNG ความละเอียดสูง</button>
     <span class="sel">ขนาด PNG <select data-scale="web"><option value="1">1920×1080</option><option value="2">3840×2160</option></select></span>
   </div>
 </section>
@@ -106,152 +87,110 @@ button:hover{filter:brightness(1.1)}button:disabled{opacity:.6;cursor:wait}
 <div id="toast"></div>
 
 <script>
-const NAVY='#0B1F3A',ORANGE='#F36F21',SLATE='#64748B',LIGHT='#F8FAFC';
-const BRANDS=['DAIKIN','EATON','KOMATSU','SAUER-DANFOSS','IBARAKI'];
-const DEFAULTS={};
-const textIds=['name','phone','address','addressShort','badge','line1','line2','scope','qr1cap','qr2cap'];
-const rangeIds=['nameScale','headScale','phoneScale'];
-let state={qr1:null,qr2:null};
+const NAVY='#0A2240',YEL='#FACC15',AMB='#F59E0B';
 const $=id=>document.getElementById(id);
-textIds.concat(rangeIds).forEach(id=>DEFAULTS[id]=$(id).value);
+const textIds=['name','h1','h2','svc1','vehicles','svc3','extra','phone','address'];
+const rangeIds=['headScale','phoneScale'];
+const DEFAULTS={};textIds.concat(rangeIds).concat(['ratio']).forEach(id=>DEFAULTS[id]=$(id).value);
 
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const ctx=document.createElement('canvas').getContext('2d');
-function measure(str,weight,size,fam){ctx.font=`${weight} ${size}px ${fam||'Prompt'}`;return ctx.measureText(str).width;}
-function fit(str,weight,size,maxW,fam){const w=measure(str,weight,size,fam);return w>maxW?size*maxW/w:size;}
+const measure=(str,w,size)=>{ctx.font=`${w} ${size}px Prompt`;return ctx.measureText(str).width;};
+const fit=(str,w,size,maxW)=>{const x=measure(str,w,size);return x>maxW?size*maxW/x:size;};
 function T(x,y,str,o){
-  o=Object.assign({size:40,weight:600,fill:NAVY,anchor:'start',fam:'Prompt',ls:0},o);
-  let size=o.maxW?fit(str,o.weight,o.size,o.maxW,o.fam):o.size;
-  return `<text x="${x}" y="${y}" font-family="${o.fam}, Prompt, sans-serif" font-weight="${o.weight}" font-size="${size.toFixed(1)}" fill="${o.fill}" text-anchor="${o.anchor}"${o.ls?` letter-spacing="${o.ls}"`:''}>${esc(str)}</text>`;
+  o=Object.assign({size:40,weight:700,fill:'#fff',anchor:'start'},o);
+  const size=o.maxW?fit(str,o.weight,o.size,o.maxW):o.size;
+  return `<text x="${x}" y="${y}" font-family="Prompt, Kanit, sans-serif" font-weight="${o.weight}" font-size="${size.toFixed(1)}" fill="${o.fill}" text-anchor="${o.anchor}"${o.op?` fill-opacity="${o.op}"`:''}>${esc(str)}</text>`;
 }
-const P=(r,a)=>{const t=a*Math.PI/180;return [200+r*Math.cos(t),200+r*Math.sin(t)]};
-const f=(p)=>p.map(n=>n.toFixed(1)).join(',');
+const wrap=(W,H,body)=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">${body}</svg>`;
 
-/* ไอคอนโลโก้ (พิกัด 400x400) */
-function icon(x,y,s,onDark){
-  let g=`<g transform="translate(${x},${y}) scale(${s})">`;
-  if(onDark) g+=`<circle cx="200" cy="200" r="200" fill="#fff"/>`;
-  g+=`<path d="M${f(P(132,38))} A132,132 0 1 1 ${f(P(132,322))}" fill="none" stroke="${NAVY}" stroke-width="60"/>`;
-  g+=`<circle cx="200" cy="200" r="88" fill="${NAVY}"/>`;
-  for(let i=0;i<7;i++){const p=P(55,-90+i*360/7);g+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="15" fill="#fff"/>`;}
-  [[20,110],[200,290]].forEach(([a,b])=>{g+=`<path d="M${f(P(26,a))} A26,26 0 0 1 ${f(P(26,b))}" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>`;});
-  g+=`<circle cx="200" cy="200" r="9" fill="#fff"/>`;
-  const R=176,e=P(R,-20),ang=-20*Math.PI/180,tx=-Math.sin(ang),ty=Math.cos(ang),nx=Math.cos(ang),ny=Math.sin(ang);
-  g+=`<path d="M${f(P(R,-165))} A${R},${R} 0 0 1 ${f(e)}" fill="none" stroke="${ORANGE}" stroke-width="13" stroke-linecap="round"/>`;
-  g+=`<polygon points="${f([e[0]+tx*34,e[1]+ty*34])} ${f([e[0]+nx*19,e[1]+ny*19])} ${f([e[0]-nx*19,e[1]-ny*19])}" fill="${ORANGE}"/>`;
-  return g+'</g>';
+/* พื้นหลังน้ำเงินเข้ม + ลายเส้นเรขาคณิต + แถบเฉียงสีเหลือง */
+function background(W,H,id){
+  const sw=H*0.11,off=H*0.07,bh=H*0.05,gap=sw*0.18,t=sw*0.2;
+  let b=`<defs><linearGradient id="g${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0D2B52"/><stop offset="1" stop-color="#071A33"/></linearGradient></defs>`;
+  b+=`<rect width="${W}" height="${H}" fill="url(#g${id})"/>`;
+  const step=H*0.16;
+  for(let x=-H;x<W+H;x+=step) b+=`<polygon points="${x},${H} ${x+H*0.55},0 ${x+H*0.55+6},0 ${x+6},${H}" fill="#fff" fill-opacity="0.045"/>`;
+  const L=(a,wd,c)=>`<polygon points="${a},0 ${a+wd},0 ${a+wd-off},${H} ${a-off},${H}" fill="${c}"/>`;
+  const R=(a,wd,c)=>`<polygon points="${W-a},0 ${W-a-wd},0 ${W-a-wd+off},${H} ${W-a+off},${H}" fill="${c}"/>`;
+  b+=L(0,sw,YEL)+L(sw+gap,t,AMB)+R(0,sw,YEL)+R(sw+gap,t,AMB);
+  b+=`<polygon points="${sw-off},${H} ${sw},${H-bh} ${W-sw},${H-bh} ${W-sw+off},${H}" fill="${YEL}"/>`;
+  return b;
 }
-/* ชุดโลโก้ไอคอน + ชื่อไทย + COACH SERVICE จัดกึ่งกลางแนวตั้งกับไอคอน */
-function lockup(x,y,isz,textX,size,maxW,nameStr,onDark,nameFill){
-  const cy=y+isz/2,s1=fit(nameStr,800,size,maxW),w1=measure(nameStr,800,s1);
-  const lsr=0.14,m=measure('COACH SERVICE',600,100)/100;
-  const s2=Math.min(w1/(m+lsr*12),s1*0.46),g=0.18*s1;
-  const b1=cy-(-0.8*s1+g+0.72*s2)/2,b2=b1+g+0.72*s2;
-  return icon(x,y,isz/400,onDark)+T(textX,b1,nameStr,{size:s1,weight:800,fill:nameFill||NAVY})+T(textX+s1*0.02,b2,'COACH SERVICE',{size:s2,weight:600,fill:ORANGE,ls:(lsr*s2).toFixed(2)});
+function check(cx,cy,r){
+  return `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${YEL}"/><polyline points="${cx-r*0.45},${cy+r*0.02} ${cx-r*0.1},${cy+r*0.36} ${cx+r*0.5},${cy-r*0.34}" fill="none" stroke="${NAVY}" stroke-width="${r*0.24}" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
-function brandRow(x,y,w,h,gap,size,stroke,fill){
-  const ws=BRANDS.map(b=>measure(b,700,size)+size*1.6);
-  const k=(w-gap*(BRANDS.length-1))/ws.reduce((a,b)=>a+b,0);
-  let cx=x,out='';
-  BRANDS.forEach((b,i)=>{const bw=ws[i]*k;
-    out+=`<rect x="${cx.toFixed(1)}" y="${y}" width="${bw.toFixed(1)}" height="${h}" rx="${h*0.1}" fill="${fill}" stroke="${stroke}" stroke-width="${Math.max(3,h*0.04)}"/>`;
-    out+=T((cx+bw/2).toFixed(1),y+h/2+size*0.35,b,{size,weight:700,anchor:'middle',fill:NAVY,fam:'Prompt',maxW:bw*0.9});
-    cx+=bw+gap;});
-  return out;
+const phoneIcon=(x,y,k)=>`<g transform="translate(${x},${y}) scale(${k})" fill="${YEL}"><path d="M25 10 L40 10 L48 30 L38 38 C44 52 52 60 62 66 L70 56 L90 64 L90 78 C90 86 84 92 76 92 C44 92 8 56 8 24 C8 16 14 10 25 10Z"/></g>`;
+function phoneBox(x,y,w,h,s,numMax){
+  const k=h*0.62/100;
+  let b=`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${h*0.2}" fill="${NAVY}" stroke="${YEL}" stroke-width="${Math.max(6,h*0.045)}"/>`;
+  b+=`<rect x="${x+h*0.07}" y="${y+h*0.07}" width="${w-h*0.14}" height="${h-h*0.14}" rx="${h*0.15}" fill="none" stroke="#fff" stroke-width="${Math.max(2,h*0.015)}" stroke-opacity="0.85"/>`;
+  b+=phoneIcon(x+h*0.35,y+h*0.2,k);
+  const left=x+h*0.35+h*0.62+h*0.25,right=x+w-h*0.3;
+  b+=T((left+right)/2,y+h*0.69,s.phone,{size:h*0.62*s.phoneScale,weight:800,anchor:'middle',maxW:right-left});
+  return b;
 }
-function qrBox(x,y,s,img,cap,capW,capSize){
-  let o=`<rect x="${x}" y="${y}" width="${s}" height="${s}" fill="#fff" stroke="${NAVY}" stroke-width="6"/>`;
-  o+= img?`<image x="${x+10}" y="${y+10}" width="${s-20}" height="${s-20}" href="${img}" preserveAspectRatio="xMidYMid meet"/>`
-          :T(x+s/2,y+s/2+14,'QR',{size:44,weight:700,fill:SLATE,anchor:'middle'});
-  o+=T(x+s/2,y+s+capSize*1.35,cap,{size:capSize,weight:700,anchor:'middle',maxW:capW});
-  return o;
+function namePill(x,y,h,s){
+  if(!s.name.trim())return '';
+  const w=measure(s.name,700,h*0.55)+h*1.1;
+  return `<rect x="${x}" y="${y}" width="${w.toFixed(1)}" height="${h}" rx="${h/2}" fill="${YEL}"/>`+T(x+w/2,y+h*0.69,s.name,{size:h*0.55,weight:700,fill:NAVY,anchor:'middle'});
 }
-const phoneIcon=(x,y,s)=>`<g transform="translate(${x},${y}) scale(${s})" fill="#fff"><path d="M25 10 L40 10 L48 30 L38 38 C44 52 52 60 62 66 L70 56 L90 64 L90 78 C90 86 84 92 76 92 C44 92 8 56 8 24 C8 16 14 10 25 10Z"/></g>`;
 
-/* ===== ชิ้นงาน 1: โลโก้ ===== */
-function logoSVG(s){
-  const W=1600,H=600;
-  let b=`<rect width="${W}" height="${H}" fill="#fff"/>`+lockup(60,60,480,620,220*s.nameScale,930,s.name,false);
-  return wrap(W,H,b);
-}
-/* ===== ชิ้นงาน 2: ป้ายไวนิล 4000x1000 ===== */
+/* ===== ป้ายไวนิล ===== */
 function vinylSVG(s){
-  const W=4000,H=1000;
-  let b=`<rect width="${W}" height="${H}" fill="#fff"/><rect x="1200" width="2800" height="${H}" fill="${LIGHT}"/>`;
-  b+=`<polygon points="0,0 1290,0 1150,1000 0,1000" fill="#C7CED8"/><polygon points="0,0 1262,0 1122,1000 0,1000" fill="${ORANGE}"/><polygon points="0,0 1210,0 1070,1000 0,1000" fill="${NAVY}"/>`;
-  b+=icon(60,60,0.75,true);
-  b+=T(400,197.5,'COACH SERVICE',{size:62,weight:600,fill:'#fff',ls:6,maxW:640});
-  b+=T(402,267.5,'ชัยนาท',{size:60,weight:700,fill:ORANGE,maxW:300});
-  b+=T(60,610,s.name,{size:230*s.nameScale,weight:800,fill:'#fff',maxW:960});
-  b+=`<rect x="60" y="690" width="980" height="130" rx="65" fill="${ORANGE}"/>`;
-  b+=T(550,690+82,s.badge,{size:58,weight:700,fill:'#fff',anchor:'middle',maxW:880});
-  b+=T(60,925,'ยกปั๊มมาที่ร้าน • ไม่รับงานนอกสถานที่',{size:44,weight:600,fill:'#cbd5e1',maxW:960});
-  // center
-  b+=T(1340,240,s.line1,{size:108*s.headScale,weight:800,maxW:1520});
-  b+=T(1340,390,s.line2,{size:108*s.headScale,weight:800,maxW:1520});
-  b+=`<rect x="1340" y="450" width="1500" height="110" rx="14" fill="#fff" stroke="${ORANGE}" stroke-width="6"/>`;
-  b+=T(2090,525,s.scope,{size:56,weight:700,fill:ORANGE,anchor:'middle',maxW:1420});
-  b+=T(1340,650,'ยี่ห้อที่รับซ่อม',{size:46,weight:700,fill:SLATE});
-  b+=brandRow(1340,690,1500,130,20,44,NAVY,'#fff');
-  // right
-  b+=`<rect x="2900" y="80" width="1040" height="400" rx="24" fill="${ORANGE}"/>`;
-  b+=phoneIcon(2940,150,2.4);
-  b+=T(3200,230,'โทร.',{size:76*s.phoneScale,weight:700,fill:'#fff'});
-  b+=T(3200,400,s.phone,{size:130*s.phoneScale,weight:800,fill:'#fff',maxW:700});
-  b+=qrBox(2980,540,270,s.qr1,s.qr1cap,420,38);
-  b+=qrBox(3410,540,270,s.qr2,s.qr2cap,420,38);
-  b+=T(3940,945,s.address,{size:46,weight:700,anchor:'end',maxW:1000});
-  return wrap(W,H,b);
+  const H=1000,W=s.ratio==='2'?2000:4000;
+  let b=background(W,H,'v');
+  if(W>2500){
+    const M=250;
+    b+=namePill(M,90,90,s);
+    b+=T(M,445,s.h1,{size:230*s.headScale,weight:800,maxW:1500});
+    b+=T(M,700,s.h2,{size:230*s.headScale,weight:800,fill:YEL,maxW:1500});
+    if(s.address.trim())b+=T(M,840,s.address,{size:46,weight:600,op:0.9,maxW:1500});
+    const X=1950,CW=1800;
+    [s.svc1,s.vehicles,s.svc3].forEach((t,i)=>{const y=270+i*120;
+      b+=check(X+38,y-26,38)+T(X+100,y,t,{size:78,weight:700,maxW:CW-100,fill:i==1?YEL:'#fff'});});
+    b+=phoneBox(X,590,CW,270,s);
+  }else{
+    const M=190,CW=W-2*M;
+    b+=namePill(M,80,80,s);
+    if(s.address.trim())b+=T(W-M,135,s.address,{size:34,weight:600,anchor:'end',op:0.9,maxW:1000});
+    b+=T(M,352,s.h1,{size:190*s.headScale,weight:800,maxW:CW});
+    b+=T(M,545,s.h2,{size:190*s.headScale,weight:800,fill:YEL,maxW:CW});
+    [s.svc1,s.vehicles,s.svc3].forEach((t,i)=>{const y=650+i*64;
+      b+=check(M+26,y-15,26)+T(M+72,y,t,{size:46,weight:700,maxW:CW-72,fill:i==1?YEL:'#fff'});});
+    b+=phoneBox(M,810,CW,115,s);
+  }
+  return {svg:wrap(W,H,b),W,H};
 }
-/* ===== ชิ้นงาน 3: แบนเนอร์ออนไลน์ 1920x1080 ===== */
+/* ===== ภาพปก 1920x1080 ===== */
 function webSVG(s){
-  const W=1920,H=1080;
-  let b=`<rect width="${W}" height="${H}" fill="#fff"/><rect x="1180" width="740" height="${H}" fill="${LIGHT}"/>`;
-  b+=lockup(90,60,230,360,150*s.nameScale,790,s.name,false);
-  b+=T(90,395,'รับซ่อมปั๊มไฮดรอลิก',{size:80*s.headScale,weight:800,fill:ORANGE,maxW:1000});
-  const items=['ผ่าซ่อมปั๊มลูกสูบ / มอเตอร์ไฮดรอลิก','เจียหน้าเพลท (Valve Plate) / ซ่อม Cylinder','จำหน่ายอะไหล่ปั๊มไฮดรอลิก','ยกมาเช็กและซ่อมที่หน้าร้านเท่านั้น (ไม่รับอัดสาย)'];
-  items.forEach((t,i)=>{const y=490+i*68;
-    b+=`<polyline points="92,${y-18} 108,${y-2} 134,${y-34}" fill="none" stroke="${ORANGE}" stroke-width="9" stroke-linecap="square"/>`;
-    b+=T(160,y,t,{size:42,weight:600,maxW:950});});
-  b+=T(90,770,'ยี่ห้อที่รับซ่อม',{size:30,weight:700,fill:SLATE});
-  b+=brandRow(90,790,1000,64,12,26,'#CBD5E1','#fff');
-  b+=`<rect x="1230" y="70" width="600" height="770" rx="28" fill="#fff" stroke="#E2E8F0" stroke-width="4"/>`;
-  b+=`<rect x="1250" y="90" width="560" height="120" rx="20" fill="${ORANGE}"/>`;
-  b+=T(1530,170,'ซ่อมหน้าร้านเท่านั้น',{size:64,weight:800,fill:'#fff',anchor:'middle',maxW:500});
-  b+=T(1530,270,'ยกปั๊มเข้ามาให้ช่างเช็กที่ร้านได้เลย',{size:38,weight:700,anchor:'middle',maxW:520});
-  b+=T(1530,322,'ไม่รับงานนอกสถานที่ • ไม่รับอัดสาย',{size:34,weight:600,fill:SLATE,anchor:'middle',maxW:520});
-  b+=qrBox(1260,370,240,s.qr1,s.qr1cap,280,32);
-  b+=qrBox(1560,370,240,s.qr2,s.qr2cap,280,32);
-  b+=`<rect x="1250" y="705" width="560" height="110" rx="20" fill="${NAVY}"/>`;
-  b+=T(1530,785,'โทร. '+s.phone,{size:60*s.phoneScale,weight:800,fill:'#fff',anchor:'middle',maxW:520});
-  b+=`<rect x="90" y="890" width="1740" height="120" rx="60" fill="${NAVY}"/>`;
-  b+=T(960,968,`ยกปั๊มเข้ามาให้ช่างเช็กได้ที่หน้าร้าน ${s.addressShort} | โทร. ${s.phone}`,{size:42,weight:700,fill:'#fff',anchor:'middle',maxW:1650});
-  return wrap(W,H,b);
+  const W=1920,H=1080,M=190,CW=W-2*M;
+  let b=background(W,H,'w');
+  b+=namePill(M,85,80,s);
+  if(s.address.trim())b+=T(W-M,138,s.address,{size:32,weight:600,anchor:'end',op:0.9,maxW:900});
+  b+=T(M,380,s.h1,{size:200*s.headScale,weight:800,maxW:CW});
+  b+=T(M,585,s.h2,{size:200*s.headScale,weight:800,fill:YEL,maxW:CW});
+  b+=T(M,680,'รถที่รับซ่อม',{size:40,weight:700,fill:YEL});
+  b+=T(M,760,s.vehicles,{size:68,weight:800,maxW:CW});
+  b+=T(M,840,s.extra,{size:50,weight:600,maxW:CW,op:0.95});
+  b+=phoneBox(M,880,CW,115,s);
+  return {svg:wrap(W,H,b),W,H};
 }
-function wrap(W,H,body,attrs){
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${W} ${H}" ${attrs||''}>${body}</svg>`;
-}
-const ARTS={logo:{fn:logoSVG,W:1600,H:600,name:'coach-service-logo'},vinyl:{fn:vinylSVG,W:4000,H:1000,name:'coach-service-vinyl-400x100cm'},web:{fn:webSVG,W:1920,H:1080,name:'coach-service-online-banner'}};
+const ARTS={vinyl:{fn:vinylSVG,name:'coach-service-vinyl'},web:{fn:webSVG,name:'coach-service-line-maps-1920x1080'}};
 
 function getState(){
-  const s=Object.assign({},state);
-  textIds.forEach(id=>s[id]=$(id).value);
-  rangeIds.forEach(id=>s[id]=$(id).value/100);
-  return s;
+  const s={};textIds.forEach(id=>s[id]=$(id).value);
+  rangeIds.forEach(id=>s[id]=$(id).value/100);s.ratio=$('ratio').value;return s;
 }
 function render(){
   const s=getState();
-  for(const k in ARTS) $('pv_'+k).innerHTML=ARTS[k].fn(s);
+  for(const k in ARTS) $('pv_'+k).innerHTML=ARTS[k].fn(s).svg;
   rangeIds.forEach(id=>$('v_'+id).textContent=$(id).value);
-  try{localStorage.setItem('coachStudio',JSON.stringify(Object.fromEntries(textIds.concat(rangeIds).map(i=>[i,$(i).value]))));}catch(e){}
+  try{localStorage.setItem('coachStudio2',JSON.stringify(Object.fromEntries(textIds.concat(rangeIds).concat(['ratio']).map(i=>[i,$(i).value]))));}catch(e){}
 }
-textIds.concat(rangeIds).forEach(id=>$(id).addEventListener('input',render));
-['qr1','qr2'].forEach(id=>$(id).addEventListener('change',e=>{
-  const file=e.target.files[0];if(!file){state[id]=null;render();return;}
-  const r=new FileReader();r.onload=()=>{state[id]=r.result;render();};r.readAsDataURL(file);
-}));
-$('reset').onclick=()=>{textIds.concat(rangeIds).forEach(id=>$(id).value=DEFAULTS[id]);state.qr1=state.qr2=null;$('qr1').value=$('qr2').value='';render();};
-try{const sv=JSON.parse(localStorage.getItem('coachStudio')||'null');if(sv)for(const k in sv)if($(k))$(k).value=sv[k];}catch(e){}
+textIds.concat(rangeIds).concat(['ratio']).forEach(id=>$(id).addEventListener('input',render));
+$('reset').onclick=()=>{Object.keys(DEFAULTS).forEach(id=>$(id).value=DEFAULTS[id]);render();};
+try{const sv=JSON.parse(localStorage.getItem('coachStudio2')||'null');if(sv)for(const k in sv)if($(k))$(k).value=sv[k];}catch(e){}
 
 /* ===== ฝังฟอนต์ลงในไฟล์ที่ดาวน์โหลด ===== */
 let fontCSSPromise=null;
@@ -260,10 +199,10 @@ function getFontCSS(){
   fontCSSPromise=(async()=>{
     const url='https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&family=Prompt:wght@400;600;700;800&display=swap';
     const css=await (await fetch(url)).text();
-    const re=/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]*\})/g;let m,out='';const jobs=[];
+    const re=/\/\*\s*([\w-]+)\s*\*\/\s*(@font-face\s*\{[^}]*\})/g;let m;const jobs=[];
     while((m=re.exec(css))){ if(m[1]!=='thai'&&m[1]!=='latin')continue;
       jobs.push((async(block)=>{const u=/url\((https:[^)]+)\)/.exec(block)[1];
-        const buf=await (await fetch(u)).arrayBuffer();let bin='';const a=new Uint8Array(buf);
+        const a=new Uint8Array(await (await fetch(u)).arrayBuffer());let bin='';
         for(let i=0;i<a.length;i+=0x8000)bin+=String.fromCharCode.apply(null,a.subarray(i,i+0x8000));
         return block.replace(/url\(https:[^)]+\)/,`url(data:font/woff2;base64,${btoa(bin)})`);})(m[2]));}
     return (await Promise.all(jobs)).join('\n');
@@ -272,15 +211,12 @@ function getFontCSS(){
   return fontCSSPromise;
 }
 async function buildFile(key,w,h){
-  const a=ARTS[key];let fonts='';
+  let fonts='';
   try{fonts=await getFontCSS();}catch(e){toast('โหลดฟอนต์ไม่ได้ (ต้องต่ออินเทอร์เน็ต) ไฟล์อาจใช้ฟอนต์สำรอง');}
-  const svg=a.fn(getState());
-  const defs=`<defs><style>${fonts}</style></defs>`;
-  const attrs=`width="${w}" height="${h}"`;
-  return svg.replace(/^<svg ([^>]*?)viewBox/,(m,p)=>`<svg ${p}${attrs} viewBox`).replace(/(<svg[^>]*>)/,`$1${defs}`);
+  const svg=ARTS[key].fn(getState()).svg;
+  return svg.replace('<svg ',`<svg width="${w}" height="${h}" `).replace(/(<svg[^>]*>)/,`$1<defs><style>${fonts}</style></defs>`);
 }
 function download(blob,name){const u=URL.createObjectURL(blob),l=document.createElement('a');l.href=u;l.download=name;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),2000);}
-/* PNG 300 DPI */
 const crcT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
 function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=crcT[(c^b[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
 function addDPI(buf,dpi){
@@ -300,17 +236,18 @@ async function exportPNG(key,w,h){
 }
 function toast(t){const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',4000);}
 document.querySelectorAll('[data-dl]').forEach(btn=>btn.addEventListener('click',async()=>{
-  const key=btn.dataset.dl,type=btn.dataset.type,a=ARTS[key];btn.disabled=true;const old=btn.textContent;btn.textContent='กำลังสร้างไฟล์...';
+  const key=btn.dataset.dl,type=btn.dataset.type,a=ARTS[key],old=btn.textContent;btn.disabled=true;btn.textContent='กำลังสร้างไฟล์...';
   try{
-    if(type==='svg'){download(new Blob([await buildFile(key,a.W,a.H)],{type:'image/svg+xml'}),a.name+'.svg');}
-    else{const k=parseFloat(document.querySelector(`[data-scale="${key}"]`).value);
-      const w=Math.round(a.W*k),h=Math.round(a.H*k);download(await exportPNG(key,w,h),`${a.name}-${w}x${h}.png`);}
+    const {W,H}=a.fn(getState());
+    const tag=key==='vinyl'?`${a.name}-${$('ratio').value}to1`:a.name;
+    if(type==='svg')download(new Blob([await buildFile(key,W,H)],{type:'image/svg+xml'}),tag+'.svg');
+    else{const k=parseFloat(document.querySelector(`[data-scale="${key}"]`).value),w=Math.round(W*k),h=Math.round(H*k);
+      download(await exportPNG(key,w,h),`${tag}-${w}x${h}.png`);}
     toast('ดาวน์โหลดเรียบร้อย');
   }catch(e){console.error(e);toast('เกิดข้อผิดพลาด: '+e.message);}
   btn.disabled=false;btn.textContent=old;
 }));
-
-document.fonts.load('800 40px Prompt','โค้ช').then(()=>Promise.all([document.fonts.load('700 40px Prompt','ก'),document.fonts.load('600 40px Prompt','ก'),document.fonts.load('600 40px Kanit','ก')])).finally(render);
+Promise.all([800,700,600].map(w=>document.fonts.load(`${w} 40px Prompt`,'ก'))).finally(render);
 render();
 </script>
 </body>
